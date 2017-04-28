@@ -1,11 +1,9 @@
-# MPCS 51400 Final Project - Ali Hong
-
-## GAMEPLAY
+# Gameplay
 
 Move the ship with the left and right arrow keys. Press Space to fire.
 Additional controls (e.g. navigation keys) are documented on-screen.
 
-## IMPLEMENTATION
+# Implementation
 
 To reduce code duplication, behavior for elements whose locations need to
 be tracked and whose elements need to be rendered on-screen is pulled out
@@ -23,7 +21,7 @@ Bullets are cleared as they leave the screen to avoid performance issues from
 rendering many off-screen elements that have no longer have any bearing on
 the game.
 
-## CODE STYLE/DESIGN
+# Code Style/Design
 
 Where possible, functions are written to be applied to singular data structures
 (e.g. collision detection simply detects a collision between two sprites, rather
@@ -41,13 +39,13 @@ be undesirable.
 Lines of code are capped at 80 characters for readability. A brief line of
 documentation is provided for each function.
 
-## EXTRA FEATURES
+# Features
 
-### Explosions
+## Explosions
 Enemies and ships explode when hit by a bullet. When the animation is complete,
 the explosion sprite is cleared from the screen.
 
-### Bezier curve trajectories for enemies
+## Bezier curve trajectories for enemies
 Enemies follow a Bezier curve to the bottom of the screen. If they reach
 the bottom unscathed, then they are placed back into formation at the top
 of the screen. To ensure that they can be seamlessly reinserted, open spots
@@ -58,15 +56,15 @@ their trajectories. For example, the enemy's location when they first "go rogue"
 is stored so that the coordinates provided by the curve function can be treated
 as offsets. Additional implementation notes provided inline.
 
-### Variable bullet trajectories
+## Variable bullet trajectories
 Enemies don't fire straight down, but rather at an angle that is calculated
 based on their current trajectory. To ensure that bullets at different angles
 travel at the same speed, the (deltaX, deltaY) vector is normalized, and
 then multiplied a constant "bullet speed" scalar. Outlandish trajectories
 (e.g. a mostly-horizontal path calculated from an enemy that happens to be
-moving horizontally would be filtered out).
+moving horizontally) are filtered out.
 
-## MISC
+# Misc
 
 A makefile is provided to clear out compilation artifacts.
 
